@@ -4,9 +4,12 @@ import axios from 'axios';
 import baseUrl from '../../utils/baseUrl';
 import { useRouter } from 'next/router';
 
-function ProductAttributes({ description, _id }) {
+function ProductAttributes({ description, _id, user }) {
   const [modal, setModal] = React.useState(false);
   const router = useRouter();
+  const isRoot = user && user.role === 'root';
+  const isAdmin = user && user.role === 'admin';
+  const isRootOrAdmin = (isRoot || isAdmin);
 
   async function handleDelete() {
     const url = `${baseUrl}/api/product`;
@@ -17,6 +20,7 @@ function ProductAttributes({ description, _id }) {
   return <>
     <Header as="h3">About this product</Header>
     <p>{description}</p>
+    {isRootOrAdmin && <>
     <Button
       icon="trash alternate outline"
       color="red"
@@ -39,6 +43,7 @@ function ProductAttributes({ description, _id }) {
         />
       </Modal.Actions>
     </Modal>
+    </>}
   </>;
 }
 

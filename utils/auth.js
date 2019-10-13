@@ -6,6 +6,11 @@ export function handleLogin(token) {
   Router.push('/account');
 }
 
+export function handleLogout() {
+  cookie.remove('token');
+  Router.push('/login');
+}
+
 export function redirectUser(ctx, location) {
   if (ctx.req) {
     ctx.res.writeHead(302, { Location: location })
