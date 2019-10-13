@@ -1,7 +1,7 @@
 import connectDb from '../../utils/connectDb';
 import User from '../../models/User';
 import bcrypt from 'bcrypt';
-
+import jwt from 'jsonwebtoken';
 
 connectDb();
 
@@ -23,11 +23,13 @@ export default async (req, res) => {
     }).save();
     console.log({newUser});
     // Create token for the new user
-    
+    const token = jwt.sign({ userId: newUser._id },
+      process.env.JWT_SECRET,
+      { expiresIn: '7d' });
     // Send back token
+    res.status(201).json(token);
   } catch {
-
-  } finally {
-
+    console.error(error)
+    res.status(500).send("Server error while signing up user.  Please try again later.");
   }
 }
