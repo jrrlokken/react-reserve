@@ -3,9 +3,9 @@ import {  Form, Input, TextArea, Button, Image, Message, Header, Icon } from 'se
 
 const INITIAL_PRODUCT = {
   name: "",
-    price: "",
-    media: "",
-    description: ""
+  price: "",
+  media: "",
+  description: ""
 }
 function CreateProduct() {
   const [product, setProduct] = React.useState(INITIAL_PRODUCT);
@@ -18,6 +18,7 @@ function CreateProduct() {
       setProduct(prevState => ({ ...prevState, media: files[0] }));
       setMediaPreview(window.URL.createObjectURL(files[0]));
     } else {
+    // Updater function
     setProduct((prevState) => ({ ...prevState, [name]: value }));
     }
   }
@@ -34,7 +35,7 @@ function CreateProduct() {
         <Icon name="add" color="orange" />
         Create New Product
       </Header>
-      <Form success={true} onSubmit={handleSubmit}>
+      <Form success={success} onSubmit={handleSubmit}>
         <Message
           success
           icon="check"
