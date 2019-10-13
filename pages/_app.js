@@ -4,6 +4,7 @@ import { parseCookies, destroyCookie } from 'nookies';
 import { redirectUser } from '../utils/auth';
 import baseUrl from '../utils/baseUrl';
 import axios from "axios";
+import { Router } from "next/router";
 
 class MyApp extends App {
   static async getInitialProps({ Component, ctx }) {
@@ -28,7 +29,7 @@ class MyApp extends App {
         const response = await axios.get(url, payload);
         const user = response.data;
         const isRoot = user.role === 'root';
-        const isAdmin = user.role === 'admin';
+        const isAdmin = user.role === 'admin'; 
         // if authenticated, but no special role, we want
         // to redirect from the create page
         const isNotPermitted = !(isRoot || isAdmin) && ctx.pathname === '/create';
@@ -45,6 +46,17 @@ class MyApp extends App {
       }
     }
     return { pageProps }
+  }
+
+  componentDidMount() {
+    window.addEventListener('storage', this.sysncLogout)
+  }
+
+  syncLogout = event => {
+    if (event.key === 'logout') {
+      console.log("logged out from storage");
+      Router.push('/login');
+    }
   }
     
   render() {
