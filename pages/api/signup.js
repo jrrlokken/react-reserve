@@ -32,7 +32,7 @@ export default async (req, res) => {
       email,
       password: hash
     }).save();
-    console.log({newUser});
+    console.log({ newUser });
     // Create cart for the new user
     await new Cart({ user: newUser._id }).save();
     // Create token for the new user

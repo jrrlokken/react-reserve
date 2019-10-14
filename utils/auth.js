@@ -3,7 +3,9 @@ import Router from 'next/router';
 
 export function handleLogin(token) {
   cookie.set('token', token);
-  Router.push('/account');
+  // Router.push('/account');
+  // It may be preferrable to go to / on login...
+  Router.push('/');
 }
 
 export function handleLogout() {

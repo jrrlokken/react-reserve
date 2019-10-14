@@ -8,9 +8,8 @@ import { Router } from "next/router";
 
 class MyApp extends App {
   static async getInitialProps({ Component, ctx }) {
-    const { token } = parseCookies(ctx)
+    const { token } = parseCookies(ctx);
     
-
     let pageProps = {};
 
     if (Component.getInitialProps) {
@@ -49,7 +48,7 @@ class MyApp extends App {
   }
 
   componentDidMount() {
-    window.addEventListener('storage', this.sysncLogout)
+    window.addEventListener('storage', this.syncLogout)
   }
 
   syncLogout = event => {

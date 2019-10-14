@@ -93,10 +93,9 @@ function Header({ user }) {
         </Menu.Item>
       </Link>
       </>)}
-
     </Container>
   </Menu>
-    )
+  )
 }
 
 export default Header;
