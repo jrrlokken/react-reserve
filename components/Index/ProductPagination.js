@@ -10,7 +10,6 @@ function ProductPagination({ totalPages }) {
         defaultActivePage={1}
         totalPages={totalPages}
         onPageChange={(event, data) => {
-          console.log(data);
           data.activePage === 1
             ? router.push('/')
             : router.push(`/?page=${data.activePage}`)

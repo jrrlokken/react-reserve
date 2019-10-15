@@ -1,7 +1,7 @@
 {
-  "name": "react-reserve",
+  "name": "racing-rabbit",
   "version": "1.0.0",
-  "description": "Project for MERN Stack - The Complete Guide",
+  "description": "TEST Store for Racing Rabbit",
   "main": "index.js",
   "scripts": {
     "dev": "next",
