@@ -25,7 +25,7 @@ function Header({ user }) {
         <Menu.Item header active={isActive('/')}>
           <Image
             size="mini"
-            src="/static/logo.svg"
+            src="/static/racingrabbit_small.jpg"
             style={{ marginRight: '1em' }}
           />
           Racing Rabbit
