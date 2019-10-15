@@ -8,6 +8,7 @@ const INITIAL_PRODUCT = {
   name: "",
   price: "",
   media: "",
+  sku: "",
   description: ""
 }
 function CreateProduct() {
@@ -82,38 +83,47 @@ function CreateProduct() {
           content="Your product has been posted"
         />
         <Form.Group widths="equal">
-           <Form.Field 
-              control={Input}
-              name="name"
-              label="Name"
-              placeholder="Name"
-              value={product.name}
-              onChange={handleChange}
-           />
+          <Form.Field 
+            control={Input}
+            name="name"
+            label="Name"
+            placeholder="Name"
+            value={product.name}
+            onChange={handleChange}
+          />
 
-            <Form.Field 
-              control={Input}
-              name="price"
-              label="Price"
-              placeholder="Price"
-              value={product.price}
-              min="0.00"
-              step="0.01"
-              type="number"
-              onChange={handleChange}
-           />
+          <Form.Field 
+            control={Input}
+            name="price"
+            label="Price"
+            placeholder="Price"
+            value={product.price}
+            min="0.00"
+            step="0.01"
+            type="number"
+            onChange={handleChange}
+          />
 
-            <Form.Field 
-              control={Input}
-              name="media"
-              type="file"
-              label="Media"
-              accept="image/*"
-              content="Select Image"
-              onChange={handleChange}
-           />
+          <Form.Field 
+            control={Input}
+            name="media"
+            type="file"
+            label="Media"
+            accept="image/*"
+            content="Select Image"
+            onChange={handleChange}
+          />
         </Form.Group>
         <Image src={mediaPreview} rounded centered size="small" />
+
+        <Form.Field 
+          control={Input}
+          name="sku"
+          label="SKU"
+          placeholder="SKU"
+          value={product.sku}
+          onChange={handleChange}
+        />
 
         <Form.Field 
           control={TextArea}
