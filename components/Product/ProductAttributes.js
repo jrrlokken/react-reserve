@@ -20,6 +20,11 @@ function ProductAttributes({ description, _id, user }) {
   return <>
     <Header as="h3">About this product</Header>
     <p>{description}</p>
+    <Button
+      icon="arrow left"
+      content="Back"
+      onClick={}
+    />
     {isRootOrAdmin && <>
     <Button
       icon="trash alternate outline"
