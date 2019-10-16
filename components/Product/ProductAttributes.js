@@ -21,7 +21,7 @@ function ProductAttributes({ description, _id, user }) {
     <Header as="h3">About this product</Header>
     <p>{description}</p>
     <Button
-      icon="arrow left"
+      icon="caret square left outline"
       content="Back"
       floated="right"
       // onClick={()}
