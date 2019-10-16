@@ -23,7 +23,7 @@ function ProductAttributes({ description, _id, user }) {
     <Button
       icon="arrow left"
       content="Back"
-      onClick={}
+      // onClick={()}
     />
     {isRootOrAdmin && <>
     <Button
